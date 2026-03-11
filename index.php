@@ -1,58 +1,39 @@
 <?php
 
-# -----------------------------
-# PASO 3: PROCESAR LOS DATOS
-# -----------------------------
-# isset verifica si el botón "guardar" fue presionado
-# si se presiona, significa que ya se llenaron los datos de los alumnos
 if(isset($_POST['guardar'])){
 
-    # los nombres llegan como arreglo porque los inputs usan nombre[]
     $nombres = $_POST['nombre'];
 
-    # las matriculas también llegan como arreglo
     $matriculas = $_POST['matricula'];
 
-    # los sexos llegan como arreglo
     $sexos = $_POST['sexo'];
 
-    # título que se mostrará en pantalla
     echo "<h2>Mujeres registradas</h2>";
 
-    # inicio de tabla HTML
     echo "<table border='1'>";
 
-    # encabezado de la tabla
     echo "<tr>";
     echo "<th>Nombre</th>";
     echo "<th>Matricula</th>";
     echo "<th>Sexo</th>";
     echo "</tr>";
 
-    # ciclo for para recorrer todos los alumnos capturados
-    # count($nombres) cuenta cuántos alumnos hay
     for($i = 0; $i < count($nombres); $i++){
 
-        # condición para verificar si el sexo es femenino
         if($sexos[$i] == "F"){
 
-            # si es mujer se imprime una fila en la tabla
             echo "<tr>";
 
-            # se imprime el nombre
             echo "<td>".$nombres[$i]."</td>";
 
-            # se imprime la matricula
             echo "<td>".$matriculas[$i]."</td>";
 
-            # se imprime el sexo
             echo "<td>".$sexos[$i]."</td>";
 
             echo "</tr>";
         }
     }
 
-    # cierre de la tabla
     echo "</table>";
 }
 
@@ -67,13 +48,8 @@ if(isset($_POST['guardar'])){
 
 <?php
 
-# -----------------------------
-# PASO 2: GENERAR FORMULARIOS
-# -----------------------------
-# isset verifica si ya se envió la cantidad de alumnos
 if(isset($_POST['cantidad'])){
 
-    # guardamos la cantidad de alumnos
     $cantidad = $_POST['cantidad'];
 
 ?>
@@ -85,8 +61,6 @@ if(isset($_POST['cantidad'])){
 
 <?php
 
-# ciclo for que genera los formularios según la cantidad
-# si el usuario escribió 3, se crearán 3 formularios
 for($i = 0; $i < $cantidad; $i++){
 
 ?>
@@ -127,10 +101,6 @@ Sexo:<br>
 
 <?php
 
-# -----------------------------
-# PASO 1: PEDIR CANTIDAD
-# -----------------------------
-# si todavía no se ha enviado la cantidad
 }else{
 
 ?>
